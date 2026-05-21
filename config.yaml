@@ -1,0 +1,47 @@
+compliance:
+  # Best-effort visibility check only; review service terms manually.
+  check_robots_txt: false
+
+proxy:
+  # 懒人默认：关闭代理，避免未启动 Clash/v2rayN 时出现 WinError 10061。
+  # 需要代理时在 GUI 勾选，或命令行传 --proxy http://127.0.0.1:7890。
+  enabled: false
+  http: "http://127.0.0.1:7890"
+  https: "http://127.0.0.1:7890"
+  auto_disable_if_unreachable: true
+
+download:
+  output_dir: "./challenge_videos"
+  quality: "best"
+  concurrent: 5
+  concurrent_fragments: 4
+  retry: 3
+  rate_limit: null
+  timeout: 30
+  subtitles_langs:
+    - "all"
+  audio_format: "mp3"
+  playlist: false
+
+analysis:
+  enabled: false
+  output_dir: "./analysis_results"
+  extract_keyframes: false
+  generate_spectrogram: false
+  run_binwalk: true
+  run_exiftool: true
+  run_zsteg: false
+  max_keyframes: 150
+  max_zsteg_frames: 80
+  command_timeout: 180
+  strings_min_length: 4
+  tail_scan_bytes: 262144
+  # Safer default: scan only. Set true only in disposable CTF workdirs.
+  binwalk_extract: false
+
+keywords:
+  - "flag{"
+  - "CTF{"
+  - "FLAG"
+  - "ctf_"
+
